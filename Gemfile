@@ -29,6 +29,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 gem 'devise'
+gem 'mandrill-api', require: 'mandrill'
 
 
 # Use ActiveModel has_secure_password
