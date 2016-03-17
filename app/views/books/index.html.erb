@@ -1,0 +1,13 @@
+<div class="pull-right">
+  <%= link_to "New Book", new_book_path, class: "btn btn-default" %>
+</div>
+
+<h1>Listing Books</h1>
+
+
+<% @books.each do |book| %>
+  <h3></h3><%= link_to book.name, book %></h3>
+  <p></p><%= book.description %></p>
+<% end %>
+
+<%= will_paginate @books, renderer: BootstrapPagination::Rails %>
