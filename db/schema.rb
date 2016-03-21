@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317021323) do
+ActiveRecord::Schema.define(version: 20160321052529) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "slug"
     t.string   "cover"
     t.integer  "user_id"
+    t.datetime "published_at"
   end
 
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true
