@@ -29,11 +29,22 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :books do
-    member do
-      patch :publish
+  authenticated :admin do
+    resources :books, path: "products", module: "admin" do
+      member do
+        patch :publish
+        patch :unpublish
+      end
+
+      collection do
+        patch :publish_all
+        post :import
+      end
     end
   end
+
+  resource :books
+
   root to:"books#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
