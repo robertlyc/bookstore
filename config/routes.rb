@@ -29,8 +29,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  authenticated :admin do
-    resources :books, path: "products", module: "admin" do
+    resources :books do
       member do
         patch :publish
         patch :unpublish
@@ -41,9 +40,6 @@ Rails.application.routes.draw do
         post :import
       end
     end
-  end
-
-  resource :books
 
   root to:"books#index"
   # The priority is based upon order of creation: first created -> highest priority.
